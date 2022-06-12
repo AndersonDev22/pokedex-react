@@ -34,3 +34,16 @@ export const Title = styled.div`
   width:100%;
   height:0 auto;
 `;
+
+export const ButtonFav = styled.div`
+display:flex;
+justify-content:end;
+width:100%;
+padding:0 15px;
+
+button{
+  width:40px;
+  height:40px;
+  cursor: pointer;
+}
+`;
