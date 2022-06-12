@@ -1,16 +1,20 @@
 import React, { useContext } from "react";
 import FavContext from "../../contexts/FavContext";
+import { NavbarContainer } from "./styled";
 
-export const Navbar = () => {
+const Navbar = () => {
   const { favoritePokemons } = useContext(FavContext);
-  const logoImg =
-    "https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png";
+
   return (
-    <nav>
+    <NavbarContainer>
       <div>
-        <img alt="pokeapi-logo" src={logoImg} className="navbar-img" />
+        <h1>Pokedex-ReactJS</h1>
       </div>
-      <div>{favoritePokemons.length} ❤️</div>
-    </nav>
+      <div>
+        <span>Eu tenho {favoritePokemons.length} pokemon(s) Favorito(s)</span>
+      </div>
+    </NavbarContainer>
   );
 };
+
+export default Navbar;

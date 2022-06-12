@@ -1,13 +1,14 @@
 import React from "react";
+import { Container } from "./styled";
 
 const Pagination = (props) => {
-    const {page, totalPages, onLeftClick, onRightClick} = props
+    const { page, totalPages, onLeftClick, onRightClick } = props
     return (
-        <div className="pagination-container">
-            <button onClick={onLeftClick}><div>◀️</div></button>
-            <div>{page} de {totalPages}</div>
-            <button onClick={onRightClick}><div>▶️</div></button>
-        </div>
+        <Container>
+            <button onClick={onLeftClick}>&laquo;</button>
+            <h1>{page} de {totalPages}</h1>
+            <button onClick={onRightClick}>&raquo;</button>
+        </Container>
     )
 }
 

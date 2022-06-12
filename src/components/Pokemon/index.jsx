@@ -1,23 +1,25 @@
-import React, {useContext} from "react";
-import FavoriteContext from "../contexts/favoritesContext";
+import React, { useContext } from "react";
+import FavoriteContext from "../../contexts/FavContext";
+import { Card, Title } from "./styled";
+
+
 
 const Pokemon = (props) => {
-    const {favoritePokemons, updateFavoritePokemons} = useContext(FavoriteContext)
-    const {pokemon} = props;
+    const { favoritePokemons, updateFavoritePokemons } = useContext(FavoriteContext)
+    const { pokemon } = props;
     const onHeartClick = () => {
         updateFavoritePokemons(pokemon.name)
     }
     const heart = favoritePokemons.includes(pokemon.name) ? "❤️" : "🖤";
     return (
-    <div className="pokemon-card">
-        <div className="pokemon-image-container">
-            <img alt={pokemon.name} src={pokemon.sprites.front_default} className="pokemon-image"/>
-        </div>
-        <div className="card-body">
-            <div className="card-top">
+        <Card>
+            <img alt={pokemon.name} src={pokemon.sprites.front_default} className="pokemon-image" />
+
+
+            <Title>
                 <h3> {pokemon.name}</h3>
-                <div>#{pokemon.id}</div>
-            </div>
+                <h2>#{pokemon.id}</h2>
+            </Title>
             <div className="card-bottom">
                 <div className="pokemon-type">
                     {pokemon.types.map((type, index) => {
@@ -30,8 +32,8 @@ const Pokemon = (props) => {
                     {heart}
                 </button>
             </div>
-        </div>
-    </div>)
+        </Card>
+    )
 }
 
 export default Pokemon;
